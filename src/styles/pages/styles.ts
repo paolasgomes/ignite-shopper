@@ -10,7 +10,7 @@ export const Carousel = styled.div`
   min-height: 41rem;
 `;
 
-export const Product = styled.a`
+export const Product = styled.article`
   background: linear-gradient(180deg, #1ea483 0%, #7465d4 100%);
   border-radius: 8px;
   cursor: pointer;

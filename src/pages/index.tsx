@@ -1,6 +1,6 @@
 import { DefaultLayout } from "@/layout/default";
 import Head from "next/head";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 import { NextPageWithLayout } from "./_app";
 import { Carousel, Content, Product } from "../styles/pages/styles";
 import { useKeenSlider } from "keen-slider/react";
@@ -10,7 +10,6 @@ import { stripe } from "@/lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Link from "next/link";
-import { Loading } from "@/components/Loading";
 
 interface HomeProps {
   products: {
@@ -67,12 +66,13 @@ const HomePage: NextPageWithLayout<HomeProps> = ({ products }) => {
       <Head>
         <title>Ignite Shopper</title>
       </Head>
+
       <Carousel ref={sliderRef} className="keen-slider">
         {products.map((product) => {
           return (
             <Link href={`/product/${product.id}`} key={product.id}>
               <Product key={product.id} className="keen-slider__slide">
-                <Image src={product.imageUrl} alt="" width={480} height={480} />
+                <Image src={product.imageUrl} alt="" width={480} height={480} priority />
                 <footer>
                   <p>{product.name} </p>
                   <span>{product.price}</span>

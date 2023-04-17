@@ -61,7 +61,7 @@ export const ProductDetails = styled.div`
     font-weight: bold;
     font-size: ${(props) => props.theme.fontSize.XS};
 
-    & > :hover {
+    &:hover {
       background-color: ${(props) => props.theme.colors["green-300"]};
     }
   }
