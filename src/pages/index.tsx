@@ -62,27 +62,28 @@ const HomePage: NextPageWithLayout<HomeProps> = ({ products }) => {
   );
 
   return (
-    <Content>
+    <>
       <Head>
-        <title>Ignite Shopper</title>
+        <title>Home: Ignite Shopper</title>
       </Head>
-
-      <Carousel ref={sliderRef} className="keen-slider">
-        {products.map((product) => {
-          return (
-            <Link href={`/product/${product.id}`} key={product.id}>
-              <Product key={product.id} className="keen-slider__slide">
-                <Image src={product.imageUrl} alt="" width={480} height={480} priority />
-                <footer>
-                  <p>{product.name} </p>
-                  <span>{product.price}</span>
-                </footer>
-              </Product>
-            </Link>
-          );
-        })}
-      </Carousel>
-    </Content>
+      <Content>
+        <Carousel ref={sliderRef} className="keen-slider">
+          {products.map((product) => {
+            return (
+              <Link href={`/product/${product.id}`} key={product.id} prefetch={false}>
+                <Product key={product.id} className="keen-slider__slide">
+                  <Image src={product.imageUrl} alt="" width={480} height={480} priority />
+                  <footer>
+                    <p>{product.name} </p>
+                    <span>{product.price}</span>
+                  </footer>
+                </Product>
+              </Link>
+            );
+          })}
+        </Carousel>
+      </Content>
+    </>
   );
 };
 HomePage.getLayout = function getLayout(page: ReactElement) {

@@ -61,7 +61,12 @@ export const ProductDetails = styled.div`
     font-weight: bold;
     font-size: ${(props) => props.theme.fontSize.XS};
 
-    &:hover {
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
       background-color: ${(props) => props.theme.colors["green-300"]};
     }
   }
